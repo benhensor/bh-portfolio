@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import NavBar from './components/NavBar';
+import Hero from './components/Hero';
+import BreakOne from './components/BreakOne';
+import BreakTwo from './components/BreakTwo';
+import Journey from './components/Journey';
+import Skills from './components/Skills';
+import { useState, useEffect } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
+function App () {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Hero />
+      <BreakOne />  
+      <Journey />
+      <BreakTwo />
+      <Skills />
     </div>
   );
 }
