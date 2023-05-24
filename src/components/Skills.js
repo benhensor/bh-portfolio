@@ -1,5 +1,4 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 
@@ -27,28 +26,29 @@ import vs from '../assets/icons/vs.svg';
 
 const Skills = () => {
 
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 7
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
-
   const icon = [ babel, bootstrap, css, figma, git, gitlab, html, jest, javascript, mongodb, node, npm, postfresql, postman, ps, react, sass, semanticUi, tailwind, vs ]
   const iconSize = 150;
+
+
+  // const responsive = {
+  //   superLargeDesktop: {
+  //     // the naming can be any, depends on you.
+  //     breakpoint: { max: 4000, min: 3000 },
+  //     items: 5
+  //   },
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 7
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 2
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1
+  //   }
+  // }
 
   return (
     <section id='skills'>
@@ -60,13 +60,13 @@ const Skills = () => {
       <Row className='skills-row'>
         <Col>
           <div className='skills-content'>
-            <Carousel responsive={responsive} infinite={true} className='skills-slider'>
+            <div className='skills-slider'>
             {icon.map((iconSrc, index) => (
-            <div className='skill' key={index}>
-              <img src={iconSrc} style={{ width: iconSize, height: iconSize }} alt={`Icon ${index}`} />
-            </div>
-            ))}        
-          </Carousel>
+              <div className='skill'>
+                <img src={iconSrc} style={{ width: iconSize, height: iconSize }} alt={`Icon ${index}`} />
+              </div>
+            ))}      
+          </div>
           </div>
         </Col>
       </Row>
@@ -74,5 +74,6 @@ const Skills = () => {
     </section>
   )
 }
+
 
 export default Skills

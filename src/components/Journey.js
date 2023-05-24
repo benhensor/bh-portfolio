@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { Container } from 'react-bootstrap'
+import SoapSoup from '../assets/journey/soapsoupLogo.gif'
+import SoC from '../assets/journey/socLogo.svg'
 
 const Journey = () => {
 
@@ -34,29 +36,32 @@ const Journey = () => {
 
         {/* <!-- journey Panel 1 --> */}
         <div className='journey-panel' onClick={handlePanelClick}>
+        <div className='panel1'>
         <div className="journey-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
           <button className='journey-trigger' aria-controls='panel1-content' aria-expanded='true'></button>
           <h2 id='panel1-heading'><span className="journey-title" id="panel1-title">Theatre</span></h2>
-          
+          <img className='img-soapsoup' src={SoapSoup} alt='placeholder' />
+        </div>
         </div>
         </div>
       
         {/* <!-- journey Panel 2 --> */}
         <div className="journey-panel" onClick={handlePanelClick}>
+        <div className='panel2'>
         <div className="journey-content" id="panel2-content" aria-labelledby="panel2-title" aria-hidden="true" role="region">
           <button className="journey-trigger" aria-controls="panel2-content" aria-expanded="false"></button>
           <h2 id="panel2-title"><span className="journey-title" id="panel2-title">Live Sound Engineer</span></h2>
-
+        </div>
         </div>
         </div>
       
         {/* <!-- journey Panel 3 --> */}
         <div className="journey-panel" onClick={handlePanelClick}>
+        <div className='panel3'>
         <div className="journey-content"  id="panel3-content" aria-labelledby="panel3-title" aria-hidden="true" role="region">
         <button className="journey-trigger" aria-controls="panel3-content" aria-expanded="false"></button>
           <h2 id="panel3-title"><span className="journey-title" id="panel3-title">Film School</span></h2>
-
-          
+        </div> 
         </div>
         </div>
 
@@ -75,7 +80,7 @@ const Journey = () => {
         <div className="journey-content"  id="panel5-content" aria-labelledby="panel5-title" aria-hidden="true" role="region">
         <button className="journey-trigger" aria-controls="panel5-content" aria-expanded="false"></button>
           <h2 id="panel5-title"><span className="journey-title" id="panel5-title">School of Code</span></h2>
-
+          <img className='img-soc'src={SoC} alt='placeholder' />
           
         </div>
         </div>

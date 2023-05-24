@@ -55,7 +55,7 @@ nav.navbar {
   width: 100%;
   top: 0;
   z-index: 999;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 nav.navbar.scrolled {
@@ -222,6 +222,37 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
+
+@media (max-width: 992px) {
+
+  nav.navbar .navbar-collapse .navbar-link {
+    padding: 0;
+    text-align: right;
+  }
+  
+  nav.navbar .navbar-collapse .social-icons {
+    justify-content: end;
+    
+  }
+  
+  nav.navbar .navbar-collapse .social-icons a {
+    margin-right: 0;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    
+  }
+  
+  nav.navbar .navbar-collapse span.navbar-text {
+    align-items: end;
+  }
+  
+  nav.navbar .navbar-collapse .navbar-text button {
+    padding: 18px 25px;
+  } 
+
+}  
+
+
 
 
 /********* HERO CSS *********/
@@ -419,11 +450,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .journey {
   margin: 180px auto;
-}
-
-.journey-title {
-  margin-bottom: 60px;
-  text-align: right;
+  --_button-size: 3rem;
+  --_panel-padding: 0.2rem;
+  --_panel-gap: 0.5rem;
 }
 
 .journey-title h1 {
@@ -439,21 +468,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .journey-container {
-  --_button-size: 3rem;
-  --_panel-padding: 0.2rem;
-  --_panel-gap: 0.5rem;
-
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
   contain: content;
   /* demo only */
   margin-top: 1rem;
   
 }
 
-/* changes accordion to vertical configuration  */
+/* changes journey panels to vertical configuration  */
 @media (min-width: 45em) {
   .journey-container {
     flex-direction: row;
@@ -470,15 +494,25 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding-right: calc(var(--_panel-padding) * 4);
   border-radius: calc(((var(--_panel-padding) * 8) + var(--_button-size)) / 8);
   background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
+}
+
+.panel1 {
+  
+  background: rgb(255, 239, 136);
+
 }
 
 .journey-content {
   opacity: 0;
   transition: opacity 500ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+#panel1-content {
+  width: 100%;
 }
 
 .journey-content:has([aria-expanded="true"]) {
@@ -534,12 +568,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .journey-title {
-  font-size: 2rem;
-  font-weight: 700;
-
-  position: relative;
-  isolation: isolate;
-
+  margin-bottom: 60px;
+  text-align: right;
 }
 
 @media (max-width: 44.999em) {
@@ -549,10 +579,22 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
     width: calc(100% + (var(--_button-size) * 2));
     height: var(--_button-size);
-    background: hsl(0 0% 0% / 0.5);
+    background: hsl(0 0% 0% / 0.2);
     z-index: -1;
-    border-radius: 100vw;
+
   }
+}
+
+.img-soapsoup {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.img-soc {
+  width: 50%;
+
+
+
 }
 
 .journey-image {
@@ -587,6 +629,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .skills-container {
   margin: 180px auto;
+  
 }
 
 .skills-row {
@@ -601,6 +644,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .skills-content {
   overflow-x: scroll;
+  display: flex;
+
+}
+
+.skills-slider {
+  display: flex;
+}
+
+.skill {
 
 }
 
@@ -609,18 +661,112 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0;
 }
 
-.skill:hover {
+/* .skill:hover {
   scale: 1.5;
   transform-origin: center;
-  transition: boop 0.5s ease;
-}
+  transition: rubberBand ;
+} */
 
-.skill:not(hover) {
 
-}
+.skill:hover {
+  
+  -webkit-animation-name: boing;
+  animation-name: boing;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
 
-@keyframes boop {
-  0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-  50% { transform: translate(0px, 0px) rotate(0deg) scale(1.2); }
-  100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-}
+@-webkit-keyframes boing {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  5% {
+    -webkit-transform: scale(1.55);
+    transform: scale(1.55);
+  }
+  20% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+  30% {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+  40% {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  50% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  60% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  70% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  80% {
+    -webkit-transform: scale(0.68);
+    transform: scale(0.98);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  }
+  }
+  @keyframes boing {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  5% {
+    -webkit-transform: scale(1.55);
+    transform: scale(1.55);
+  }
+  20% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+  30% {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+  40% {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  50% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  60% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  70% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  80% {
+    -webkit-transform: scale(0.68);
+    transform: scale(0.98);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  }
+  }
